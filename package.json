@@ -1,0 +1,15 @@
+{
+  "name": "geren-tg",
+  "version": "1.0.0",
+  "description": "Aplicação de gerenciamento de bancas de Trabalhos de Graduação",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Fausto Gonçalves Cintra <fausto@fgcintra.pro.br>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
