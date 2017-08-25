@@ -18,6 +18,8 @@
     "consign": "^0.1.6",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
-    "method-override": "^2.3.9"
+    "method-override": "^2.3.9",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8"
   }
 }
