@@ -1,3 +1,4 @@
+/*
 var trabalhos = [
    {
       '_id': 1,
@@ -15,14 +16,26 @@ var trabalhos = [
       'aluno': 'Yago Brigagão Palermo'      
    }
 ];
+*/
 
-module.exports = function() {
+module.exports = function(app) {
 
    var controller = {};
 
+   var Trabalho = app.models.Trabalho;
+
    // Retorna todos os trabalhos cadastrados
    controller.listar = function(req, res) {
-      res.json(trabalhos);
+      Trabalho.find().exec().then(
+         function(trabalhos) {     // Callback se der certo
+            res.json(trabalhos);
+         },
+         function(erro) {          // Callback se der errado
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      );   
    }
 
    // Retorna um trabalho, identificado pelo id
@@ -30,20 +43,17 @@ module.exports = function() {
 
       var idTrabalho = req.params.id;
 
-      // Filtra o vetor 'trabalhos', gerando um outro vetor
-      // ('selecionados') que contém apenas o trabalho selecionado
-      var selecionados = trabalhos.filter(function(trabalho) {
-         return trabalho._id == idTrabalho;
-      });
-
-      // 'selecionados' é um vetor. Temos que olhar no seu
-      // primeiro elemento
-      if(selecionados[0]) {
-         res.json(selecionados[0]);
-      }
-      else {
-         res.status(404).send('Trabalho não encontrado');
-      }
+      Trabalho.findById(idTrabalho).exec().then(
+         function(trabalho) {
+            if (!trabalho) throw new Error('Trabalho não encontrado');
+            res.json(trabalho);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 404: não encontrado
+            res.status(404).json(erro);
+         }
+      );
 
    }
 

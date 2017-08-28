@@ -11,6 +11,6 @@ module.exports = function() {
 
    });
 
-   return mongoose.Model('Categoria', schema);
+   return mongoose.model('Categoria', schema);
 
 }

@@ -30,6 +30,6 @@ module.exports = function() {
 
    });
 
-   return mongoose.Model('Trabalho', schema);
+   return mongoose.model('Trabalho', schema);
 
 }

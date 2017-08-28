@@ -1,6 +1,14 @@
 var http = require('http');
 var express = require('./config/express');
 
+var db = require('./config/database');
+
+// Iniciamos a conexão com o banco de dados
+// junto com a aplicação
+// Conecta-se ao MongoDB no servidor localhost
+// para utilizar o banco de dados geren-tg
+db('mongodb://localhost/geren-tg');
+
 var app = express();
 
 /*http.createServer(
