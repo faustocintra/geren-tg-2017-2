@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http'
+import { RoutingModule } from './app.router'
+
 import { AppComponent } from './app.component';
-import { TrabalhoListaComponent } from './trabalho-lista/trabalho-lista.component';
+import { TrabalhosListaComponent } from './trabalhos/trabalhos-lista/trabalhos-lista.component';
+import { CategoriasListaComponent } from './categorias/categorias-lista/categorias-lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TrabalhoListaComponent
+    TrabalhosListaComponent,
+    CategoriasListaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
