@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router'
 
 import { TrabalhosListaComponent } from './trabalhos/trabalhos-lista/trabalhos-lista.component';
+import { TrabalhosFormComponent } from './trabalhos/trabalhos-form/trabalhos-form.component';
 import { CategoriasListaComponent } from './categorias/categorias-lista/categorias-lista.component';
 
 const routes : Routes = [
@@ -12,6 +13,11 @@ const routes : Routes = [
    {
       path: 'trabalhos',
       component: TrabalhosListaComponent
+   },
+
+   {
+      path: 'trabalhos/novo',
+      component: TrabalhosFormComponent
    },
 
    {

@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core'
-
-import { HttpClient } from '@angular/common/http'
+import { TrabalhoService } from '../../services/trabalho/trabalho.service'
 
 @Component({
   selector: 'app-trabalhos-lista',
   templateUrl: './trabalhos-lista.component.html',
-  styleUrls: ['./trabalhos-lista.component.css']
+  styleUrls: ['./trabalhos-lista.component.css'],
+  providers: [ TrabalhoService ]
 })
 export class TrabalhosListaComponent implements OnInit {
 
-  private trabalhos
+  private trabalhos : any
   private title = 'Lista de Trabalhos'
   
-  constructor(private http: HttpClient) { 
-    this.http.get('http://localhost:3000/trabalhos')
-      .subscribe(dados => this.trabalhos = dados)
+  constructor(private service: TrabalhoService) { 
+    this.service.listarTodos().subscribe((dados : Response) => this.trabalhos = dados)
   }
 
   ngOnInit() {

@@ -1,5 +1,18 @@
 <h3>{{title}}</h3>
 
-<ul>
-  <li *ngFor="let trabalho of trabalhos">{{trabalho.titulo}}</li>
-</ul>
+<table class="table table-striped">
+  <tr>
+    <th>Título</th>
+    <th>Aluno(a)</th>
+    <th>Categoria</th>
+    <th>Data da banca</th>
+    <th>Nota</th>
+  </tr>
+  <tr *ngFor="let trabalho of trabalhos">
+    <td>{{trabalho.titulo}}</td>
+    <td>{{trabalho.aluno}}</td>
+    <td>{{trabalho.categoria}}</td>
+    <td>{{trabalho.dataBanca}}</td>
+    <td>{{trabalho.nota}}</td>
+  </tr>
+</table>

@@ -7,12 +7,16 @@ import { RoutingModule } from './app.router'
 import { AppComponent } from './app.component';
 import { TrabalhosListaComponent } from './trabalhos/trabalhos-lista/trabalhos-lista.component';
 import { CategoriasListaComponent } from './categorias/categorias-lista/categorias-lista.component';
+import { MenuComponent } from './nav/menu/menu.component';
+import { TrabalhosFormComponent } from './trabalhos/trabalhos-form/trabalhos-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrabalhosListaComponent,
-    CategoriasListaComponent
+    CategoriasListaComponent,
+    MenuComponent,
+    TrabalhosFormComponent
   ],
   imports: [
     BrowserModule,
