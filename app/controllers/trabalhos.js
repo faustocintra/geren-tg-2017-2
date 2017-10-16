@@ -63,6 +63,7 @@ module.exports = function(app) {
 
       // Filtra o vetor 'trabalho', gerando o vetor 'remanescentes'
       // sem o trabalho excluído
+      /*
       var remanescentes = trabalhos.filter(function(trab) {
          return trab._id != idTrabalho;
       });
@@ -76,6 +77,16 @@ module.exports = function(app) {
       else {
          res.status(404).send('Trabalho não encontrado para exclusão');
       }
+      */
+
+      Trabalho.remove({_id: idTrabalho}).exec().then(
+         function() {
+            res.status(203).end();
+         },
+         function(erro) {
+            console.log(erro);
+         }
+      );
 
    }
 

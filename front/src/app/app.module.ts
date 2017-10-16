@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http'
 import { RoutingModule } from './app.router'
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { TrabalhosListaComponent } from './trabalhos/trabalhos-lista/trabalhos-lista.component';
@@ -21,7 +22,8 @@ import { TrabalhosFormComponent } from './trabalhos/trabalhos-form/trabalhos-for
   imports: [
     BrowserModule,
     HttpClientModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

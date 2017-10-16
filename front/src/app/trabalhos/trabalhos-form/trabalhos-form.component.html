@@ -1,35 +1,41 @@
 <h2>{{title}}</h2>
 
-<form>
+<form #trabalhoForm="ngForm">
 
   <div class="form-group">
     <label for="titulo">Título</label>
-    <input type="text" id="titulo" />
+    <input type="text" id="titulo" name="titulo" class="form-control" [(ngModel)]="model.titulo" />
   </div>
 
   <div class="form-group">
     <label for="aluno">Aluno(a)</label>
-    <input type="text" id="aluno" />
+    <input type="text" id="aluno" name="aluno" class="form-control" [(ngModel)]="model.aluno" />
   </div>
 
   <div class="form-group">
     <label for="categoria">Categoria</label>
-    <select id="categoria">
-
+    <select id="categoria" name="categoria" class="form-control" [(ngModel)]="model.categoria">
+      <option *ngFor="let cat of categorias"
+        [ngValue]="cat._id">{{cat.descricao}}</option>
     </select>
   </div>
 
+  <p>Teste</p>
+  <ul>
+    <li *ngFor="let cat of categorias">{{cat.descricao}}</li>
+  </ul>
+
   <div class="form-group">
     <label for="dataBanca">Data da banca</label>
-    <input type="datetime" id="dataBanca" />
+    <input type="datetime" id="dataBanca" name="dataBanca" class="form-control" [(ngModel)]="model.dataBanca" />
   </div>
 
   <div class="form-group">
     <label for="nota">Nota</label>
-    <input type="number" id="nota" />
+    <input type="number" id="nota" name="nota" class="form-control" [(ngModel)]="model.nota" />
   </div>
 
-  <div class="form-group">
+  <div class="text-center">
     <input class="btn btn-primary" type="submit" value="Enviar" />
   </div>
 
