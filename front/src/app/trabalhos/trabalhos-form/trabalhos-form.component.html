@@ -15,15 +15,11 @@
   <div class="form-group">
     <label for="categoria">Categoria</label>
     <select id="categoria" name="categoria" class="form-control" [(ngModel)]="model.categoria">
-      <option *ngFor="let cat of categorias"
+      <option value="">(Selecione)</option>
+      <option *ngFor="let cat of categorias | async"
         [ngValue]="cat._id">{{cat.descricao}}</option>
     </select>
   </div>
-
-  <p>Teste</p>
-  <ul>
-    <li *ngFor="let cat of categorias">{{cat.descricao}}</li>
-  </ul>
 
   <div class="form-group">
     <label for="dataBanca">Data da banca</label>
