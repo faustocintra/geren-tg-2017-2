@@ -57,6 +57,37 @@ module.exports = function(app) {
 
    }
 
+   controller.novo = function(req, res) {
+
+      Trabalho.create(req.body).then(
+         function(trabalho) {
+            // HTTP 201: criado            
+            res.status(201).json(trabalho);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      )
+
+   }
+
+   controller.atualizar = function(req, res) {
+
+      var idTrabalho = req.body._id;
+
+      Trabalho.findByIdAndUpdate(idTrabalho, req.body).then(
+         function(trabalho) {
+            res.status(200).json(trabalho);
+         },
+         function(erro) {
+            console.error(erro);
+            res.status(404).json('Trabalho não encontrado para atualizar');
+         }
+      )
+   }
+
    controller.excluir = function(req, res) {
 
       var idTrabalho = req.params.id;

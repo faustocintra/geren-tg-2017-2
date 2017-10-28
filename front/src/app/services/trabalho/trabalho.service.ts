@@ -19,4 +19,21 @@ export class TrabalhoService {
     return this.http.get('http://localhost:3000/trabalhos');
   }
 
+  public obterPorId(id: string) {
+    return this.http.get('http://localhost:3000/trabalhos/' + id)
+  }
+
+  public salvar(t: Trabalho) {
+
+    // Atualiza objeto já existente
+    if(t._id) {
+      return this.http.post('http://localhost:3000/trabalhos', t)
+    }
+    // Inserção de novo objeto
+    else {
+      return this.http.put('http://localhost:3000/trabalhos', t)
+    }
+
+  }
+
 }

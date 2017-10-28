@@ -4,4 +4,6 @@ module.exports = function(app) {
    app.get('/trabalhos', controller.listar);
    app.get('/trabalhos/:id', controller.obterUm);
    app.delete('/trabalhos/:id', controller.excluir);
+   app.put('/trabalhos', controller.novo);
+   app.post('/trabalhos', controller.atualizar);
 }

@@ -1,3 +1,7 @@
+<a [routerLink]="['/trabalhos/novo']" class="btn btn-primary btn-md">
+  Novo trabalho
+</a>
+
 <h3>{{title}}</h3>
 
 <table class="table table-striped">
@@ -9,7 +13,7 @@
     <th>Nota</th>
   </tr>
   <tr *ngFor="let trabalho of trabalhos">
-    <td>{{trabalho.titulo}}</td>
+    <td><a [routerLink]="['/trabalhos', trabalho._id]">{{trabalho.titulo}}</a></td>
     <td>{{trabalho.aluno}}</td>
     <td>{{trabalho.categoria}}</td>
     <td>{{trabalho.dataBanca}}</td>

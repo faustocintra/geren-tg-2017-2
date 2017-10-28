@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
 
-<form #trabalhoForm="ngForm">
+<form #trabalhoForm="ngForm" (submit)="enviar()">
 
   <div class="form-group">
     <label for="titulo">Título</label>

@@ -23,6 +23,11 @@ const routes : Routes = [
    {
       path: 'categorias',
       component: CategoriasListaComponent
+   },
+
+   {
+      path: 'trabalhos/:id',
+      component: TrabalhosFormComponent
    }
 
 ]
