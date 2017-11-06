@@ -26,7 +26,7 @@ module.exports = function(app) {
 
    // Retorna todos os trabalhos cadastrados
    controller.listar = function(req, res) {
-      Trabalho.find().exec().then(
+      Trabalho.find().populate('categoria').exec().then(
          function(trabalhos) {     // Callback se der certo
             res.json(trabalhos);
          },

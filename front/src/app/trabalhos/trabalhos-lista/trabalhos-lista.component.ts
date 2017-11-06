@@ -22,7 +22,7 @@ export class TrabalhosListaComponent implements OnInit {
   }
 
   formatarData(data : string) {
-    if(data) {
+    if(data) {''
       return moment(data, 'YYYY-MM-DDThh:mm:ssZ').format('DD/MM/YYYY hh[h]mm');
     }
     else {
