@@ -36,4 +36,8 @@ export class TrabalhoService {
 
   }
 
+  public excluir(id: string) {
+    return this.http.delete('http://localhost:3000/trabalhos/' + id)
+  }
+
 }

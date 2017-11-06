@@ -11,12 +11,18 @@
     <th>Categoria</th>
     <th>Data da banca</th>
     <th>Nota</th>
+    <th>Excluir</th>
   </tr>
   <tr *ngFor="let trabalho of trabalhos">
     <td><a [routerLink]="['/trabalhos', trabalho._id]">{{trabalho.titulo}}</a></td>
     <td>{{trabalho.aluno}}</td>
-    <td>{{trabalho.categoria}}</td>
-    <td>{{trabalho.dataBanca}}</td>
+    <td>{{trabalho.categoria.descricao}}</td>
+    <td>{{formatarData(trabalho.dataBanca)}}</td>
     <td>{{trabalho.nota}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(trabalho._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
   </tr>
 </table>
