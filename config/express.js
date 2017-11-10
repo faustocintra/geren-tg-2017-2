@@ -4,6 +4,10 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
+
 //var home = require('../app/routes/home');
 
 module.exports = function() {
@@ -28,12 +32,21 @@ module.exports = function() {
    
    //home(app);
 
+   app.use(cookieParser());
+   app.use(session({
+      // Coloque sua frase secreta aqui
+      secret: 'Um abajur cor de carne, um lençol azul',
+      resave: true,
+      saveUninitialized: true
+   }));
+   app.use(passport.initialize());
+   app.use(passport.session());   
+ 
    /*
       Entra no diretório app/, carrega recursivamente
       todos os *.js e "despeja" o resultado dentro
       da variável app
    */
-   
    // cwd: change working directory
    consign({cwd: 'app'})
       .include('models')

@@ -1,5 +1,6 @@
 var http = require('http');
 var express = require('./config/express');
+var passport = require('./config/passport');
 
 var db = require('./config/database');
 
@@ -8,6 +9,8 @@ var db = require('./config/database');
 // Conecta-se ao MongoDB no servidor localhost
 // para utilizar o banco de dados geren-tg
 db('mongodb://localhost/geren-tg');
+
+passport();
 
 var app = express();
 
